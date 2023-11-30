@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Домашняя страница";
+    var response = ViewData["Response"] as string;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>GPO</title>
+</head>
+<body>
+    <img src="logo.ico">
+    <b>|</b>
+    <a href="IndexList.cshtml" position="absolute" top="2%" left="15%">Список</a>
+    <div class="blue-bar">
+        @* OEIS <label for="text-input"></label> *@
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        {
+            <label>OEIS</label> 
+            @Html.TextBox("search","", htmlAttributes: new {@class = "blue-label"})
+            <label>| Интерпретация</label>
+        }
+        @* <input type="text" id="text-input" name="text-input" class="blue-label" method="get"> | Интерпретация *@
+    </div>
+    <div class="gray-block">
+        <label for="text-input"></label>
+        <input type="text" id="text-input" name="text-input" class="gray-label" placeholder="Сюда грузится инфа">
+    </div>
+    <div class="center-line"></div>
+    <div class="gray-blockchange1">
+        <b>Выберите метод </b>
+        <br> <br> <br> <label for="text-input"></label><input type="text" id="text-input" name="text-input">
+    </div>
+    @using (Html.BeginForm("UseAlg", "Home", FormMethod.Get))
+    {
+    <div class="gray-blockchange">
+        <b>Генерация </b>
+        <br> <br> <br> <label for="text-input"></label>@* <input type="text" id="text-input" name="text-input"> *@
+        
+            <label>m=</label>
+            @Html.TextBox("m","", htmlAttributes: new {@class = "w-40 form-control"})
+        
+    </div>
+    <div class="input-window">
+        @* <input type="text" placeholder="Введите здесь"> *@
+
+            <label>n=</label>
+            @Html.TextBox("n","", htmlAttributes: new {@class = "w-40 form-control"})
+
+    </div>
+  
+        <input type="submit" class="green-button" value="Выполнить" />
+    }
+
+    <div class="rectangle">
+        @response
+    </div>
+ 
+    <div class="gray-blockchangeBIG">
+        <b>Описание алгоритма</b>
+        <br>
+        @if(@Model != null){
+        @foreach (var item in @Model)
+        {
+            <div>
+
+                @item.Information
+
+            </div>
+        }
+        }
+        
+        <hr>
+        <br><b>Формула</b>
+        <hr>
+        <br><b>Генерация И/ИЛИ</b>
+        <hr>
+        <br><b>Псевдокод</b>
+    </div>
+
+</body>
+</html>

@@ -1,4 +1,6 @@
-﻿namespace GPOSite.Algorithms
+﻿using GPOSite.Models;
+
+namespace GPOSite.Algorithms
 {
     public class A007318
     {
@@ -43,6 +45,7 @@
             {
                 for (int i = 0; i < n; i++)
                     derevo.Add(1);
+
             }
             else
             {
@@ -59,22 +62,24 @@
                 }
             }
         }
-        public string Start(int n, int m)
+        public List<string> Start(int n, int m)
         {
-            string Answer = "";
+            
+            List<string> response = new List<string>();
             for (int r = 0; r < Combinations(n, m); r++)
             {
+                string Answer = "";
                 derevo.Clear();
                 GenCombination(r, m, n);
                 for (int i = 0; i < derevo.Count; i++)
                     Answer += derevo[i].ToString();
-                Answer += $" Rank=  {r};";
-
-                Answer += "\n";
+                Answer += $" Rank=  {r}";
+                response.Add(Answer);
+              
 
 
             }
-            return Answer;
+            return response;
         }
     }
 }

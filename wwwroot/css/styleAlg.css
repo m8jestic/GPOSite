@@ -1,0 +1,238 @@
+.header{
+    display: flex;
+    width: 100%;
+    background-color: #D9D9D9;
+    filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25));
+}
+.header .header_logo img{
+    width: 230px;
+    height: 120px;
+}
+.header .header_container{
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .header_container .header_search{
+    padding-right: 20px;
+}
+.header .header_container .header_search form input{
+    width: 362px;
+    height: 50px;
+    background-color: #ffffff;
+    text-align: left;
+    padding: 0 14px;
+    color: #6C6C6C;
+    font-family: Open Sans;
+    font-size: 16px;
+    border-style: none;
+}
+.header .header_container .header_search form button{
+    display: inline-flex;
+    padding: 15px 23px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #1F1E1E;
+    color: #FFF;
+    font-family: Open Sans;
+    font-size: 14px;
+    border-style: none;
+    border-left: none;
+    text-transform: uppercase;
+}
+.header .header_container .header_navigation{
+    padding-left: 20px;
+}
+.header .header_container .header_navigation a{
+    font-family: 'Lora',sans-serif;
+    font-size: 45px;
+    text-decoration: none;
+    color: #000;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    width: calc(100%-160);
+    margin-left: 80px;
+    margin-right: 80px;
+}
+.main_obj-descritption{
+    display: flex;
+    justify-content: center;
+    background-color: #D9D9D9;
+    filter: drop-shadow(6px 10px 6px rgba(0, 0, 0, 0.25));
+    margin-top: 75px;
+    text-align: center;
+}
+.main .main_obj-descritption h1{
+    /* Desk. Типографика Cайт 1/Дек. текст/3 Цитата */
+    font-family: 'Lora',sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+.main .main_chng-container .main_obj-chng a,.main .main_gen-container .main_gen-href .main_gen a {
+    /* Desk. Типографика Cайт 1/Дек. текст/3 Цитата */
+    font-family: 'Lora',sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 45px;
+    margin-top: 25px;
+    text-align: center;
+}
+.main .main_gen-container .main_gen-href .main_gen .main_gen-start .main_gen-params a {
+    /* Desk. Типографика Cайт 1/Дек. текст/3 Цитата */
+    font-family: 'Lora',sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 45px;
+    margin-top: 25px;
+    margin-left: 15px;
+}
+.main .main_gen-container .main_gen-href .main_href a {
+    /* Desk. Типографика Cайт 1/Дек. текст/3 Цитата */
+    font-family: 'Lora',sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 45px;
+    margin-top: 25px;
+    margin-left: 15px;
+}
+.main .main_gen-container .main_gen-href .main_gen .main_gen-start a  {
+    /* Desk. Типографика Cайт 1/Дек. текст/3 Цитата */
+    color: #000;
+    text-align: center;
+    font-family: Lora;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.main .main_gen-container .main_alg-dsrc-container a  {
+    /* Desk. Типографика Cайт 1/Дек. текст/3 Цитата */
+    font-family: 'Lora',sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 45px;
+    margin-top: 25px;
+}
+
+
+.main_chng-container{
+    width: calc(100%-160);
+    margin-top: 75px;
+}
+.main_obj-chng{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    background-color: #D9D9D9;
+    filter: drop-shadow(6px 10px 6px rgba(0, 0, 0, 0.25));
+    height: 200px;
+}
+.main .main_chng-container .main_obj-chng input {
+    width: 150px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.75);
+    text-align: left;
+    padding: 0 14px;
+    color: #6C6C6C;
+    font-family: Open Sans;
+    font-size: 16px;
+    border-style: none;
+}
+.main_gen-container{
+    display: flex;
+    justify-content: space-between;
+}
+.main_gen-href{
+    margin-top: 35px;
+    width: 45%;
+}
+.main_gen{
+    background-color: #D9D9D9;
+    filter: drop-shadow(6px 10px 6px rgba(0, 0, 0, 0.25));
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.main_gen-start{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-around;
+}
+.main_gen-params-input{
+    width: 50px;
+    height: 40px;
+    background: rgba(187, 187, 187, 0.60);
+    text-align: left;
+    padding: 0 14px;
+    color: #6C6C6C;
+    font-family: Open Sans;
+    font-size: 16px;
+    border-style: none;
+}
+.main_gen-btn{
+    text-align: center;
+    background-color: #FCE389;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 15px 40px;
+    margin-bottom: 35px;
+    border: none;
+    filter: drop-shadow(6px 10px 6px rgba(0, 0, 0, 0.25));
+}
+.main_gen-result{
+    background-color: #F6F6F6;
+    filter: drop-shadow(0px 10px 6px rgba(0, 0, 0, 0.25));
+    width: 60%;
+    min-height: 200px;
+    align-self: center;
+    margin-bottom: 25px;
+}
+.main_href{
+    background-color: #D9D9D9;
+    filter: drop-shadow(6px 10px 6px rgba(0, 0, 0, 0.25));
+    margin-top: 35px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.main_alg-dsrc-container{
+    background-color: #D9D9D9;
+    filter: drop-shadow(6px 10px 6px rgba(0, 0, 0, 0.25));
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 35px;
+    width: 45%;
+}
+.main_alg-dsrc{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.main_alg-formulas{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.main_alg-I-ILI{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.main_alg-psevdo{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}

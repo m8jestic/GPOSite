@@ -1,0 +1,155 @@
+﻿@{
+    ViewData["Title"] = "Поиск алгоритмов";
+    var response = ViewData["Response"] as List<string>;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск алгоритмов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Open+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/normalizer.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styleAlg.css" asp-append-version="true" />
+</head>
+<body>
+    @using (@Html.BeginForm("SearchAlg", "Alg", FormMethod.Get))
+                {
+    <header class="header">
+        <div class="header_logo">
+            <a href="#">
+                <img src="~/logo.svg" alt="">
+            </a>
+        </div>
+        <div class="header_container">
+            <nav class="header_navigation">
+                <a href="#">| Главная</a>
+            </nav>
+            <div class="header_search">
+                
+                    @Html.TextBox("search","", htmlAttributes: new {@placeholder = "Введите номер из OEIS"})
+                    <button type="submit">Найти</button>
+                
+            </div>
+            
+           @*  <div class="header_search">
+                <form action="">
+                    <input placeholder="Введите номер из OEIS">
+                    <button type="submit">Найти</button>
+                </form>
+            </div> *@
+        </div>
+    </header>
+    <main class="main">
+        <div class="main_obj-descritption">
+            @if (@Model != null)
+            {
+                @foreach (var item in @Model)
+                {
+                    <div>
+
+                        <h1>@item.Information</h1>
+
+                    </div>
+                }
+            }
+            @* <h1>Числа фибоначчи - элементы числовой последовательности в которой первые два числа равны нулю и единице, а каждое последующее число равно сумме двух предыдущих чисел</h1> *@
+        </div>
+        <div class="main_chng-container">
+            <div class="main_obj-chng">
+                <a>ВЫБОР ОБЪЕКТА</a>
+                <input class="main_input-chng">
+            </div>
+        </div>
+        <div class="main_gen-container">
+            <div class="main_gen-href">
+                <div class="main_gen">
+                    <a>ГЕНЕРАЦИЯ ОБЪЕКТА</a>
+                    <div class="main_gen-start">
+                        
+                        <div class="main_gen-params">
+                            @if (@Model != null)
+                            {
+                                @foreach (var item in @Model)
+                                {
+                                    @if (@item.Number == 1)
+                                    {
+                                          <a>N=</a>
+                                            @Html.TextBox("n","", htmlAttributes: new {@class="main_gen-params-input"})
+
+
+                                            @* <a>N=</a> <input class="main_gen-params-input"> *@
+                                        }
+                                        else if (@item.Number == 2)
+                                        {
+                                            <a>N=</a> <input class="main_gen-params-input"> <a>M=</a> <input class="main_gen-params-input">
+                                        }
+                                        else if (@item.Number == 3)
+                                        {
+                                            <a>N=</a> <input class="main_gen-params-input"> <a>M=</a> <input class="main_gen-params-input">  <a>K=</a> <input class="main_gen-params-input">
+                                        }
+                                        else
+                                        {
+                                            <a>N=</a> <input class="main_gen-params-input">
+                                        }
+                                    }
+                                }
+                                            else if (@Model == null)
+                                {
+                                    <a>N=</a> <input class="main_gen-params-input">
+                                }
+                                </div>
+                                <button type="submit" class="main_gen-btn"><a>Выполнить</a></button>
+                        
+                        </div>
+
+                    <div class="main_gen-result">
+                            @if (@response != null)
+                            {
+                                @for (int i = 0; i < @response.Count; i++)
+                                {
+                                    @response[i]
+                                }
+                            }
+                    </div>
+                </div>
+                <div class="main_href">
+                    <a>ССЫЛКИ</a>
+                    <a href="https://youtu.be/MThhnNVncnY?si=IpKHegTIQ5gfUkS5&t=3">ПРИМЕР ССЫЛКА</a>
+                </div>
+            </div>
+            <div class="main_alg-dsrc-container">
+                <div class="main_alg-dsrc">
+                    <a>ОПИСАНИЕ АЛГОРИТМА</a>
+                    @if (@Model != null)
+                    {
+                        @foreach (var item in @Model)
+                        {
+                            <div>
+
+                                @item.Information
+
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="main_alg-formulas">
+                    <a>ФОРМУЛЫ</a>
+                </div>
+                <div class="main_alg-I-ILI">
+                    <a>Генерация и/или</a>
+                </div>
+                <div class="main_alg-psevdo">
+                    <a>Псевдик</a>
+                </div>
+            </div>
+
+        </div>
+       
+    </main>
+    }
+</body>
+</html>

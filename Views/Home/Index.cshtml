@@ -1,83 +1,59 @@
 ﻿@{
-    ViewData["Title"] = "Домашняя страница";
-    var response = ViewData["Response"] as string;
+    ViewData["Title"] = "Главная страница";
 }
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>GPO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Open+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    @* <link rel="stylesheet" href="normalizer.css"> *@
+    <link rel="stylesheet" href="~/css/normalizer.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styleHome.css" asp-append-version="true" />
 </head>
 <body>
-    <img src="logo.ico">
-    <b>|</b>
-    <a href="IndexList.cshtml" position="absolute" top="2%" left="15%">Список</a>
-    <div class="blue-bar">
-        @* OEIS <label for="text-input"></label> *@
-        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
-        {
-            <label>OEIS</label> 
-            @Html.TextBox("search","", htmlAttributes: new {@class = "blue-label"})
-            <label>| Интерпретация</label>
-        }
-        @* <input type="text" id="text-input" name="text-input" class="blue-label" method="get"> | Интерпретация *@
-    </div>
-    <div class="gray-block">
-        <label for="text-input"></label>
-        <input type="text" id="text-input" name="text-input" class="gray-label" placeholder="Сюда грузится инфа">
-    </div>
-    <div class="center-line"></div>
-    <div class="gray-blockchange1">
-        <b>Выберите метод </b>
-        <br> <br> <br> <label for="text-input"></label><input type="text" id="text-input" name="text-input">
-    </div>
-    @using (Html.BeginForm("UseAlg", "Home", FormMethod.Get))
-    {
-    <div class="gray-blockchange">
-        <b>Генерация </b>
-        <br> <br> <br> <label for="text-input"></label>@* <input type="text" id="text-input" name="text-input"> *@
-        
-            <label>m=</label>
-            @Html.TextBox("m","", htmlAttributes: new {@class = "w-40 form-control"})
-        
-    </div>
-    <div class="input-window">
-        @* <input type="text" placeholder="Введите здесь"> *@
-
-            <label>n=</label>
-            @Html.TextBox("n","", htmlAttributes: new {@class = "w-40 form-control"})
-
-    </div>
-  
-        <input type="submit" class="green-button" value="Выполнить" />
-    }
-
-    <div class="rectangle">
-        @response
-    </div>
- 
-    <div class="gray-blockchangeBIG">
-        <b>Описание алгоритма</b>
-        <br>
-        @if(@Model != null){
-        @foreach (var item in @Model)
-        {
-            <div>
-
-                @item.Information
-
+    <header class="header">
+        <div class="header_logo">
+            <a href="#">
+                <img src="logo.svg" alt="">
+            </a>
+        </div>
+        <div class="header_container">
+            <nav class="header_navigation">
+                <a asp-area="" asp-controller="Alg" asp-action="IndexAlg">| Главная страница</a>
+                @* <a href="alg">| Главная страница</a> *@
+            </nav>
+            @* <div class="header_search">
+                <form action="">
+                    <input placeholder="Введите номер из OEIS">
+                    <button type="submit">Найти</button>
+                </form>
+            </div> *@
+        </div>
+    </header>
+    <main class="main">
+        <div class="main_text">
+            <h1>Данный сайт - проект, который представляет из себя онлайн энциклопедию, содержащая систематизированную информацию о существующих алгоритмах комбинаторной генерации, их свойства и имеющихся ограничениях применения</h1>
+        </div>
+        <div class="main_container">
+            <div class="main_list">
+                <img src="list.svg" alt="">
+                <a>СПИСОК</a>
             </div>
-        }
-        }
-        
-        <hr>
-        <br><b>Формула</b>
-        <hr>
-        <br><b>Генерация И/ИЛИ</b>
-        <hr>
-        <br><b>Псевдокод</b>
-    </div>
-
+            <div class="main_signup">
+                <a>Авторизация</a>
+                <h3>Логин</h3>
+                <input class="main_signup-input">
+                <h3>Пароль</h3>
+                <input class="main_signup-input">
+                <button type="submit" class="main_reg-btn">Я новенький</button>
+                <button type="submit" class="main_guest-btn">Я уже смешарик</button>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
